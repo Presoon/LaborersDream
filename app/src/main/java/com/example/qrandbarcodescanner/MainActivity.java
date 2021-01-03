@@ -18,6 +18,7 @@ import com.google.zxing.integration.android.IntentResult;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button scanBtn;
+    String serverInfo = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +49,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         scanBtn.setVisibility(View.INVISIBLE);
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode, data);
         String requestID =  result.getContents();
+        GetObjectFromServer showInfo = new GetObjectFromServer();
+        showInfo.execute(requestID);
+        serverInfo = showInfo.getServerInfo();
+        System.out.println(serverInfo);
 
         if (result != null){
             if (requestID != null){
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Object info:");
-                builder.setMessage(requestID);
+                builder.setMessage(serverInfo);
                 AlertDialog dialog = builder.create();
                 dialog.show();
                 builder.setPositiveButton("Scan again", new DialogInterface.OnClickListener() {
