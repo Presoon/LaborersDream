@@ -10,7 +10,7 @@ namespace MarzenieLaboranta.Infrastructure.DataBase
     {
         public InventarContext(DbContextOptions<InventarContext> options) : base(options)
         { }
-        //public DbSet<FailureReport> FailureReports { get; set; }
+        public DbSet<FailureReport> FailureReports { get; set; }
         //public DbSet<Localization> Localizations { get; set; }
         //public DbSet<Resource> Resources { get; set; }
         public DbSet<User> Users { get; set; }
