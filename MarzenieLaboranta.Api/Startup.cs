@@ -1,6 +1,7 @@
 using MarzenieLaboranta.Application.Helpers;
 using MarzenieLaboranta.Application.Repositories;
 using MarzenieLaboranta.Application.Services;
+using MarzenieLaboranta.Infrastructre.Repositories;
 using MarzenieLaboranta.Infrastructure.DataBase;
 using MarzenieLaboranta.Infrastructure.Repositories.cs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -65,8 +66,8 @@ namespace MarzenieLaboranta.Api
 
             services.AddScoped<IUsersRepository, UsersRepository>();
             services.AddScoped<IUsersService, UsersService>();
-            //services.AddScoped<IResourcesRepository, ResourcesRepository>();
-            //services.AddScoped<IResourcesService, ResourcesService>();
+            services.AddScoped<IResourcesRepository, ResourcesRepository>();
+            services.AddScoped<IResourcesService, ResourcesService>();
             //services.AddScoped<IFailuresRepository, FailuresRepository>();
             //services.AddScoped<IFailuresService, FailuresService>();
             //services.AddScoped<ILocalizationsService, LocalizationsService>();
