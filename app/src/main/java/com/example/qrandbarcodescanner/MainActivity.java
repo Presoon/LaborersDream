@@ -9,6 +9,8 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -48,19 +50,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected  void  onActivityResult(int requestCode, int resultCode, Intent data){
         scanBtn.setVisibility(View.INVISIBLE);
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode, data);
-        String requestID =  result.getContents();
+        String requestID = "http://api.seev.pro:5000/resources/qrdata/" + result.getContents();
+
+        Handler handler = new Handler();
+
         GetObjectFromServer showInfo = new GetObjectFromServer();
         showInfo.execute(requestID);
-        serverInfo = showInfo.getServerInfo();
-        System.out.println(serverInfo);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                serverInfo = showInfo.getServerInfo();
+
+            }
+        }, 800);
 
         if (result != null){
             if (requestID != null){
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Object info:");
-                builder.setMessage(serverInfo);
-                AlertDialog dialog = builder.create();
-                dialog.show();
                 builder.setPositiveButton("Scan again", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -70,6 +78,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onClick(DialogInterface dialog, int which) { finish(); }
                 });
+
+                        if(serverInfo != null) {
+
+                            builder.setMessage(serverInfo.toString());
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                            serverInfo = null;
+                        }
             }
             else{
                 Toast.makeText(this, "No Result", Toast.LENGTH_LONG).show();
