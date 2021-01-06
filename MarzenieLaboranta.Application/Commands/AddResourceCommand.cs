@@ -11,6 +11,5 @@ namespace MarzenieLaboranta.Application.Commands
         public long LocalizationId { get; set; }
         public long? UserId { get; set; }
         public ResourceTypeEnum Type { get; set; }
-
     }
 }
