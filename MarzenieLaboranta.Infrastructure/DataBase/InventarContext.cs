@@ -8,7 +8,7 @@ namespace MarzenieLaboranta.Infrastructure.DataBase
         public InventarContext(DbContextOptions<InventarContext> options) : base(options)
         { }
         //public DbSet<FailureReport> FailureReports { get; set; }
-        //public DbSet<Localization> Localizations { get; set; }
+        public DbSet<Localization> Localizations { get; set; }
         public DbSet<Resource> Resources { get; set; }
         public DbSet<User> Users { get; set; }
 
@@ -27,8 +27,8 @@ namespace MarzenieLaboranta.Infrastructure.DataBase
             //    .WithMany(l => l.Resources)
             //    .HasForeignKey(r => r.LocalizationId);
 
-            //    modelBuilder.Entity<Localization>()
-            //     .HasKey(l => l.Id);
+            modelBuilder.Entity<Localization>()
+             .HasKey(l => l.Id);
 
             //    modelBuilder.Entity<FailureReport>()
             //        .HasKey(f => f.Id);

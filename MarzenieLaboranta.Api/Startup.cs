@@ -70,8 +70,8 @@ namespace MarzenieLaboranta.Api
             services.AddScoped<IResourcesService, ResourcesService>();
             //services.AddScoped<IFailuresRepository, FailuresRepository>();
             //services.AddScoped<IFailuresService, FailuresService>();
-            //services.AddScoped<ILocalizationsService, LocalizationsService>();
-            //services.AddScoped<ILocalizationsRepository, LocalizationsRepository>();
+            services.AddScoped<ILocalizationsService, LocalizationsService>();
+            services.AddScoped<ILocalizationsRepository, LocalizationsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
