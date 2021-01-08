@@ -21,7 +21,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button scanBtn;
     String serverInfo = null;
-
+    String serialNumber;
+    String id;
+    String specification;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,7 +83,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         if(serverInfo != null) {
 
-                            builder.setMessage(serverInfo.toString());
+                            JsonObject jsonObject = new JsonParser().parse(serverInfo.toString()).getAsJsonObject();
+                            serialNumber = jsonObject.get("seriesNumber").getAsString();
+                            id = jsonObject.get("id").getAsString();
+                            specification = jsonObject.get("specification").getAsString();
+                            System.out.println(serialNumber);
+                            System.out.println(id);
+                            System.out.println(specification);
+                            builder.setMessage("Serial Number: "+ serialNumber+  "\n" + "Id: "  +id+ "\n" + "Specification:" + specification+"\n");
                             AlertDialog dialog = builder.create();
                             dialog.show();
                             serverInfo = null;
