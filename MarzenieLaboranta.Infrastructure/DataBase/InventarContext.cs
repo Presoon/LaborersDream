@@ -19,22 +19,21 @@ namespace MarzenieLaboranta.Infrastructure.DataBase
             modelBuilder.Entity<User>()
              .HasKey(u => u.Id);
 
-            //modelBuilder.Entity<Resource>()
-            //    .HasMany(r => r.FailureReports)
-            //    .WithOne(f => f.Resource)
-            //    .HasForeignKey(f => f.ResourceId);
+            modelBuilder.Entity<Resource>()
+                .HasMany(r => r.FailureReports)
+                .WithOne(f => f.Resource)
+                .HasForeignKey(f => f.ResourceId);
 
-            //modelBuilder.Entity<Resource>()
-            //    .HasOne(r => r.Localization)
-            //    .WithMany(l => l.Resources)
-            //    .HasForeignKey(r => r.LocalizationId);
+            modelBuilder.Entity<Resource>()
+                .HasOne(r => r.Localization)
+                .WithMany(l => l.Resources)
+                .HasForeignKey(r => r.LocalizationId);
 
             modelBuilder.Entity<Localization>()
              .HasKey(l => l.Id);
 
-            //    modelBuilder.Entity<FailureReport>()
-            //        .HasKey(f => f.Id);
-
+            modelBuilder.Entity<FailureReport>()
+                .HasKey(f => f.Id);
 
         }
     }
