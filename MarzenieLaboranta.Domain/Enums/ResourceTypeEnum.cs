@@ -6,6 +6,6 @@ namespace MarzenieLaboranta.Domain.Enums
 {
     public enum ResourceTypeEnum
     {
-        Hardware, Sortware
+        Hardware, Software
     }
 }

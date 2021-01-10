@@ -68,8 +68,8 @@ namespace MarzenieLaboranta.Api
             services.AddScoped<IUsersService, UsersService>();
             services.AddScoped<IResourcesRepository, ResourcesRepository>();
             services.AddScoped<IResourcesService, ResourcesService>();
-            //services.AddScoped<IFailuresRepository, FailuresRepository>();
-            //services.AddScoped<IFailuresService, FailuresService>();
+            services.AddScoped<IFailuresRepository, FailuresRepository>();
+            services.AddScoped<IFailuresService, FailuresService>();
             services.AddScoped<ILocalizationsService, LocalizationsService>();
             services.AddScoped<ILocalizationsRepository, LocalizationsRepository>();
         }

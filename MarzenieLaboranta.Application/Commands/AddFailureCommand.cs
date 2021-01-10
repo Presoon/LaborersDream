@@ -8,5 +8,6 @@ namespace MarzenieLaboranta.Application.Commands
     {
         public string FailureDescription { get; set; }
         public long ReporterId { get; set; }
+        public long ResourceId { get; set; }
     }
 }
