@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 serverInfo = showInfo.getServerInfo();
 
             }
-        }, 800);
+        }, 1000);
 
         if (result != null){
             if (requestID != null){
@@ -81,8 +81,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onClick(DialogInterface dialog, int which) { finish(); }
                 });
 
-                        if(serverInfo != null) {
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
 
+                        if(serverInfo != null) {
                             JsonObject jsonObject = new JsonParser().parse(serverInfo.toString()).getAsJsonObject();
                             serialNumber = jsonObject.get("seriesNumber").getAsString();
                             id = jsonObject.get("id").getAsString();
@@ -90,11 +93,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             System.out.println(serialNumber);
                             System.out.println(id);
                             System.out.println(specification);
+
+                            //serverInfo.toString()
                             builder.setMessage("Serial Number: "+ serialNumber+  "\n" + "Id: "  +id+ "\n" + "Specification:" + specification+"\n");
                             AlertDialog dialog = builder.create();
                             dialog.show();
                             serverInfo = null;
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    scanBtn.setVisibility(View.VISIBLE);
+                                }
+                            }, 300);
                         }
+                        else{
+                            builder.setMessage("There was an error with trying to get data from server. Make sure that scanned object is used in laboratory or check connection and try again.");
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    scanBtn.setVisibility(View.VISIBLE);
+                                }
+                            }, 300);
+                        }
+                    }
+                }, 1500);
             }
             else{
                 Toast.makeText(this, "No Result", Toast.LENGTH_LONG).show();
