@@ -9,11 +9,11 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 
 
@@ -56,16 +56,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Handler handler = new Handler();
 
-        GetObjectFromServer showInfo = new GetObjectFromServer();
-        showInfo.execute(requestID);
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
+            GetObjectFromServer showInfo = new GetObjectFromServer();
+            showInfo.execute(requestID);
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
 
-                serverInfo = showInfo.getServerInfo();
+                    serverInfo = showInfo.getServerInfo();
 
-            }
-        }, 1000);
+                }
+            }, 1000);
+
 
         if (result != null){
             if (requestID != null){
@@ -95,10 +96,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             System.out.println(specification);
 
                             //serverInfo.toString()
-                            builder.setMessage("Serial Number: "+ serialNumber+  "\n" + "Id: "  +id+ "\n" + "Specification:" + specification+"\n");
-                            AlertDialog dialog = builder.create();
-                            dialog.show();
-                            serverInfo = null;
+                        builder.setMessage("Serial Number: "+ serialNumber+  "\n" + "Id: "  +id+ "\n" + "Specification:" + specification+"\n");
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                        serverInfo = null;
                             handler.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {

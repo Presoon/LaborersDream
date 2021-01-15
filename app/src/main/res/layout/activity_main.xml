@@ -15,15 +15,14 @@
         android:layout_centerInParent="true"
         android:layout_marginBottom="176dp"
         android:text="SCAN NOW"
-        android:textSize="30sp"
-        app:iconTint="#FFFFFF" />
+        android:textSize="30sp" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:scaleType="matrix"
         android:visibility="visible"
-        app:srcCompat="@color/white" />
+        app:srcCompat="@drawable/lab" />
 
 </RelativeLayout>
