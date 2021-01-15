@@ -2,6 +2,7 @@
 using MarzenieLaboranta.Application.Commands;
 using MarzenieLaboranta.Application.DTOs;
 using MarzenieLaboranta.Application.Services;
+using MarzenieLaboranta.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -45,14 +46,14 @@ namespace MarzenieLaboranta.Api.Controllers
         }
         [Authorize]
         [HttpGet("all-waiting")]
-        public async Task<List<FailureReportShortDTO>> GetFailuresReportShort()
+        public async Task<List<FailureReport>> GetFailuresReportShort()
         {
             return await _failuresService.GetFailuresReportShort();
         }
 
         [Authorize]
         [HttpGet("all")]
-        public async Task<List<FailureReportShortDTO>> GetAllFailuresReportShort()
+        public async Task<List<FailureReport>> GetAllFailuresReportShort()
         {
             return await _failuresService.GetAllFailuresReportShort();
         }

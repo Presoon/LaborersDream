@@ -24,5 +24,11 @@ namespace MarzenieLaboranta.Domain.Entities
             DateOfReporting = dateOfReporting;
             RepairStatus = repairStatus;
         }
+
+        public FailureReport()
+        {
+
+        }
+        
     }
 }
