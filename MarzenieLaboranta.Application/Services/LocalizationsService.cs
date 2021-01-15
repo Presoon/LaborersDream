@@ -1,7 +1,10 @@
 ﻿using MarzenieLaboranta.Application.Commands;
+using MarzenieLaboranta.Application.DTOs;
 using MarzenieLaboranta.Application.Repositories;
 using MarzenieLaboranta.Domain.Entities;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MarzenieLaboranta.Application.Services
@@ -30,6 +33,15 @@ namespace MarzenieLaboranta.Application.Services
             }
 
             await _localizationsRepository.DeleteLocalizations(localization);
+        }
+        public async Task<List<LocalizationDTO>> GetLocalizations() {
+            var localizations = await _localizationsRepository.GetLocalizations();
+            var localizationDTOs = localizations.Select(l => new LocalizationDTO()
+            {
+                Id = l.Id,
+                Name = l.Name
+            }).ToList();
+            return localizationDTOs;
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using MarzenieLaboranta.Application.Repositories;
 using MarzenieLaboranta.Domain.Entities;
 using MarzenieLaboranta.Infrastructure.DataBase;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MarzenieLaboranta.Infrastructre.Repositories
@@ -30,6 +32,11 @@ namespace MarzenieLaboranta.Infrastructre.Repositories
         public async Task<Localization> GetLocalization(long id)
         {
             var localization = await _context.Localizations.FindAsync(id);
+            return localization;
+        }
+        public async Task<List<Localization>> GetLocalizations()
+        {
+            var localization = await _context.Localizations.ToListAsync();
             return localization;
         }
     }
