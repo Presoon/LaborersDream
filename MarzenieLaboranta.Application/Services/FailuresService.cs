@@ -1,9 +1,11 @@
 ﻿using MarzenieLaboranta.Application.Commands;
+using MarzenieLaboranta.Application.DTOs;
 using MarzenieLaboranta.Application.Repositories;
 using MarzenieLaboranta.Domain.Entities;
 using MarzenieLaboranta.Domain.Enums;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -56,6 +58,12 @@ namespace MarzenieLaboranta.Application.Services
             }
 
             await _failuresRepository.UpdateFailureReport(failureReport);
+        }
+
+        public async Task<List<FailureReportShortDTO>> GetFailuresReportShort()
+        {
+            var failuresReportShort = await _failuresRepository.GetAllActiveFailureReports();
+            return failuresReportShort.Select(f => new FailureReportShortDTO(f.Id, f.FailureDescription, f.DateOfReporting, f.RepairStatus)).ToList();
         }
     }
 }
