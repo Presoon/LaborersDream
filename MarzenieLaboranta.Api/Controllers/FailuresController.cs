@@ -27,6 +27,15 @@ namespace MarzenieLaboranta.Api.Controllers
             return Ok();
         }
 
+        [Authorize]
+        [HttpPut("update-status/{id}")]
+        public async Task<IActionResult> UpdateStatus(long id, UpdateFailureStatusCommand command)
+        {
+            command.Id = id;
+            await _failuresService.UpdateStatus(command);
+            return Ok();
+        }
+
         [Authorize(Roles = SystemRoles.LabTechnician)]
         [HttpDelete("delete/{id}")]
         public async Task DeleteFailureReport(long id)

@@ -12,5 +12,6 @@ namespace MarzenieLaboranta.Application.Services
         Task UpdateFailureReport(UpdateFailureCommand command);
         Task<List<FailureReportShortDTO>> GetFailuresReportShort();
         Task<List<FailureReportShortDTO>> GetAllFailuresReportShort();
+        Task UpdateStatus(UpdateFailureStatusCommand command);
     }
 }
