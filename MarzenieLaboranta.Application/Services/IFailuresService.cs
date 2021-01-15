@@ -11,5 +11,6 @@ namespace MarzenieLaboranta.Application.Services
         Task DeleteFailureReport(long id);
         Task UpdateFailureReport(UpdateFailureCommand command);
         Task<List<FailureReportShortDTO>> GetFailuresReportShort();
+        Task<List<FailureReportShortDTO>> GetAllFailuresReportShort();
     }
 }

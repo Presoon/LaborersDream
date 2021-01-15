@@ -48,5 +48,10 @@ namespace MarzenieLaboranta.Infrastructure.Repositories.cs
             failureReports.Where(f => f.RepairStatus == RepairStatusEnum.Waiting);
             return failureReports;
         }
+        public async Task<List<FailureReport>> GetAllFailureReports()
+        {
+            var failureReports = await _context.FailureReports.ToListAsync();
+            return failureReports;
+        }
     }
 }

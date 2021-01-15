@@ -11,5 +11,6 @@ namespace MarzenieLaboranta.Application.Repositories
         Task<FailureReport> GetFailuresReport(long id);
         Task UpdateFailureReport(FailureReport failureReport);
         Task<List<FailureReport>> GetAllActiveFailureReports();
+        Task<List<FailureReport>> GetAllFailureReports();
     }
 }

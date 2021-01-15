@@ -4,9 +4,7 @@ using MarzenieLaboranta.Application.DTOs;
 using MarzenieLaboranta.Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MarzenieLaboranta.Api.Controllers
@@ -41,6 +39,13 @@ namespace MarzenieLaboranta.Api.Controllers
         public async Task<List<FailureReportShortDTO>> GetFailuresReportShort()
         {
             return await _failuresService.GetFailuresReportShort();
+        }
+
+        [Authorize]
+        [HttpGet("all")]
+        public async Task<List<FailureReportShortDTO>> GetAllFailuresReportShort()
+        {
+            return await _failuresService.GetAllFailuresReportShort();
         }
     }
 }

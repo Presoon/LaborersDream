@@ -65,5 +65,10 @@ namespace MarzenieLaboranta.Application.Services
             var failuresReportShort = await _failuresRepository.GetAllActiveFailureReports();
             return failuresReportShort.Select(f => new FailureReportShortDTO(f.Id, f.FailureDescription, f.DateOfReporting, f.RepairStatus)).ToList();
         }
+        public async Task<List<FailureReportShortDTO>> GetAllFailuresReportShort()
+        {
+            var failuresReportShort = await _failuresRepository.GetAllFailureReports();
+            return failuresReportShort.Select(f => new FailureReportShortDTO(f.Id, f.FailureDescription, f.DateOfReporting, f.RepairStatus)).ToList();
+        }
     }
 }
