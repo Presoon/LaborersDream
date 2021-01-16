@@ -20,7 +20,7 @@ namespace MarzenieLaboranta.Api.Controllers
             _failuresService = failuresService;
         }
 
-        [Authorize(Roles = SystemRoles.LabTechnician)]
+        [Authorize]
         [HttpPost("add")]
         public async Task<IActionResult> AddFailureReport(AddFailureCommand command)
         {
@@ -37,7 +37,7 @@ namespace MarzenieLaboranta.Api.Controllers
             return Ok();
         }
 
-        [Authorize(Roles = SystemRoles.LabTechnician)]
+        [Authorize]
         [HttpDelete("delete/{id}")]
         public async Task DeleteFailureReport(long id)
         {
