@@ -46,7 +46,7 @@ namespace MarzenieLaboranta.Infrastructure.Repositories.cs
         {
             var failureReports = await _context.FailureReports.Where(f => f.RepairStatus == RepairStatusEnum.Waiting).Join(
                 _context.Resources,
-                failureReport => failureReport.Id,
+                failureReport => failureReport.Resource.Id,
                 resource => resource.Id,
                 (failureReport, resource) => new FailureReport()
                 {
@@ -67,7 +67,7 @@ namespace MarzenieLaboranta.Infrastructure.Repositories.cs
         {
             var failureReports = await _context.FailureReports.Join(
                _context.Resources,
-               failureReport => failureReport.Id,
+               failureReport => failureReport.Resource.Id,
                resource => resource.Id,
                (failureReport, resource) => new FailureReport()
                {
