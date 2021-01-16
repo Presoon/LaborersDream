@@ -19,7 +19,7 @@ namespace MarzenieLaboranta.Domain.Entities
         public FailureReport(string failureDescription, long resourceId, long reporterId, DateTime dateOfReporting, RepairStatusEnum repairStatus)
         {
             FailureDescription = failureDescription;
-            ResourceId = reporterId;
+            ResourceId = resourceId;
             ReporterId = reporterId;
             DateOfReporting = dateOfReporting;
             RepairStatus = repairStatus;
