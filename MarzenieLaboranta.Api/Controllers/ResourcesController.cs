@@ -44,6 +44,14 @@ namespace MarzenieLaboranta.Application.Controllers
             command.Id = id;
             await _resourceService.UpdateResource(command);
             return Ok();
+        }        
+        
+        [Authorize]
+        [HttpPut("{id}/scrapp")]
+        public async Task<IActionResult> ScrappResource(long id)
+        {
+            await _resourceService.ScrappResource(id);
+            return Ok();
         }
 
         [Authorize]

@@ -11,6 +11,7 @@ namespace MarzenieLaboranta.Application.Services
         Task<long> AddResource(AddResourceCommand command);
         Task DeleteResource(long id);
         Task UpdateResource(UpdateResourceCommand command);
+        Task ScrappResource(long resourceId);
         Task<List<ResourceDTO>> GetResources();
         Task<ResourceSerialNumberDTO> GetResourceBySerialNumber(Guid seriesNumber);
     }

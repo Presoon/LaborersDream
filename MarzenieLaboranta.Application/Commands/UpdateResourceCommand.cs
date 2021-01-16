@@ -12,7 +12,6 @@ namespace MarzenieLaboranta.Application.Commands
         public DateTime DateOfPurchase { get; set; }
         public long LocalizationId { get; set; }
         public long? UserId { get; set; }
-        public DateTime? DateOfScrapping { get; set; }
         public ResourceTypeEnum Type { get; set; }
     }
 }
