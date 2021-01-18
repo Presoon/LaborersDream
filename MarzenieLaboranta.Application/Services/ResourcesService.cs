@@ -90,8 +90,20 @@ namespace MarzenieLaboranta.Application.Services
             resource.DateOfPurchase = command.DateOfPurchase;
             resource.LocalizationId = command.LocalizationId;
             resource.UserId = command.UserId;
-            resource.DateOfScrapping = command.DateOfScrapping;
             resource.Type = command.Type;
+            await _resourcesRepository.UpdateResource(resource);
+        }
+
+        public async Task ScrappResource(long resourceId)
+        {
+            var resource = await _resourcesRepository.GetResource(resourceId);
+
+            if (resource is null)
+            {
+                throw new Exception("Resource does not exist");
+            }
+
+            resource.Scrap();
             await _resourcesRepository.UpdateResource(resource);
         }
     }

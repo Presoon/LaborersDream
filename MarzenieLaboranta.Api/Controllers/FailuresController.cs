@@ -2,11 +2,10 @@
 using MarzenieLaboranta.Application.Commands;
 using MarzenieLaboranta.Application.DTOs;
 using MarzenieLaboranta.Application.Services;
+using MarzenieLaboranta.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MarzenieLaboranta.Api.Controllers
@@ -21,7 +20,7 @@ namespace MarzenieLaboranta.Api.Controllers
             _failuresService = failuresService;
         }
 
-        [Authorize(Roles = SystemRoles.LabTechnician)]
+        [Authorize]
         [HttpPost("add")]
         public async Task<IActionResult> AddFailureReport(AddFailureCommand command)
         {
@@ -29,7 +28,16 @@ namespace MarzenieLaboranta.Api.Controllers
             return Ok();
         }
 
-        [Authorize(Roles = SystemRoles.LabTechnician)]
+        [Authorize]
+        [HttpPut("update-status/{id}")]
+        public async Task<IActionResult> UpdateStatus(long id, UpdateFailureStatusCommand command)
+        {
+            command.Id = id;
+            await _failuresService.UpdateStatus(command);
+            return Ok();
+        }
+
+        [Authorize]
         [HttpDelete("delete/{id}")]
         public async Task DeleteFailureReport(long id)
         {
@@ -38,9 +46,18 @@ namespace MarzenieLaboranta.Api.Controllers
         }
         [Authorize]
         [HttpGet("all-waiting")]
-        public async Task<List<FailureReportShortDTO>> GetFailuresReportShort()
+        public async Task<List<FailureReport>> GetFailuresReportShort()
         {
             return await _failuresService.GetFailuresReportShort();
         }
+
+        [Authorize]
+        [HttpGet("all")]
+        public async Task<List<FailureReport>> GetAllFailuresReportShort()
+        {
+            return await _failuresService.GetAllFailuresReportShort();
+        }
+
+
     }
 }

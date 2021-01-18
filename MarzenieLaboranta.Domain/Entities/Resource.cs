@@ -19,6 +19,11 @@ namespace MarzenieLaboranta.Domain.Entities
         public List<FailureReport> FailureReports { get; set; }
         public void Scrap()
         {
+            if(DateOfScrapping!=null)
+            {
+                throw new Exception("Resource is already scrapped");
+            }
+
             DateOfScrapping = DateTime.Now;
         }
 
