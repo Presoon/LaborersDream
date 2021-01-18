@@ -1,8 +1,11 @@
 ﻿using MarzenieLaboranta.Application.Repositories;
 using MarzenieLaboranta.Domain.Entities;
+using MarzenieLaboranta.Domain.Enums;
 using MarzenieLaboranta.Infrastructure.DataBase;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,6 +41,12 @@ namespace MarzenieLaboranta.Infrastructure.Repositories.cs
         {
             _context.FailureReports.Update(failureReport);
             await _context.SaveChangesAsync();
+        }
+        public async Task<List<FailureReport>> GetAllActiveFailureReports()
+        {
+            var failureReports = await _context.FailureReports.ToListAsync();
+            failureReports.Where(f => f.RepairStatus == RepairStatusEnum.Waiting);
+            return failureReports;
         }
     }
 }

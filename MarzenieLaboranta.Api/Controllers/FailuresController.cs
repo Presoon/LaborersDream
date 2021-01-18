@@ -1,5 +1,6 @@
 ﻿using MarzenieLaboranta.Api.Roles;
 using MarzenieLaboranta.Application.Commands;
+using MarzenieLaboranta.Application.DTOs;
 using MarzenieLaboranta.Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -34,6 +35,12 @@ namespace MarzenieLaboranta.Api.Controllers
         {
             await _failuresService.DeleteFailureReport(id);
 
+        }
+        [Authorize]
+        [HttpGet("all-waiting")]
+        public async Task<List<FailureReportShortDTO>> GetFailuresReportShort()
+        {
+            return await _failuresService.GetFailuresReportShort();
         }
     }
 }
