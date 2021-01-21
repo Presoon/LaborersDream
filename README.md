@@ -20,5 +20,5 @@ Technologie:
 
 Linki:
 * [Katalog zawierający pliki projektu](https://github.com/Presoon/IO-MarzenieLaboranta/)
-* [Wersja release](https://github.com/)
+* [Wersja release](https://github.com/Presoon/IO-MarzenieLaboranta/blob/master/Documentation.pdf)
 * [Katalog dokumentacji](https://github.com/)
