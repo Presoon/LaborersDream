@@ -1,0 +1,155 @@
+body {
+  background-color: transparent;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.logoimg {
+  width: 100%;
+}
+
+.blackback {
+  background-color: rgb(31, 49, 102);
+}
+
+.fslarge {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-family: "Nunito";
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: xx-large;
+  margin-top: 40px;
+  margin-right: 0px;
+  display: block;
+}
+
+.category {
+  text-align: center;
+  border: 1px solid rgb(216, 218, 221);
+  padding: 1rem;
+}
+
+.category span {
+  color: rgb(157, 145, 145);
+  font-weight: 700;
+}
+
+.inventory {
+  border-radius: 20px;
+  text-align: center;
+}
+
+.inventory td,
+.inventory th {
+  padding: 12px;
+  vertical-align: middle !important;
+}
+
+.inventory tbody tr td:nth-child(2) {
+  font-weight: bold;
+  color: #4e73df;
+}
+
+.inventory thead th {
+  background-color: #4e73df;
+}
+
+.inventory thead th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.inventory th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.inventory th {
+  text-align: center;
+  color: white;
+}
+
+.operation {
+  text-align: center;
+}
+
+#buttonScrap {
+  margin: 5px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 8px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #f44336;
+}
+#buttonMid {
+  margin: 5px;
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 8px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #ee9e1d;
+}
+
+#buttonEdit {
+  margin: 5px;
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 8px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #45ac45;
+}
+
+#top-bar {
+  display: flex;
+}
+
+#buttonAdd {
+  margin: 5px;
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 140%;
+  padding: 8px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #45ac45;
+}
+
+#buttonScrapped {
+  margin: 5px;
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 140%;
+  padding: 8px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #f44336;
+}
+
+#buttonsArea {
+  display: flex;
+}
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
