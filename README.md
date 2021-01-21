@@ -13,12 +13,12 @@ Technologie:
 
 ![](https://img.shields.io/badge/Backend-ASP.NET-informational?style=flat&logo=.NET&logoColor=white&color=ff9933)
 
-![](https://img.shields.io/badge/Frontend-ASP.NET-informational?style=flat&logo=React&logoColor=white&color=ff9933)
+![](https://img.shields.io/badge/Frontend-React.js-informational?style=flat&logo=React&logoColor=white&color=ff9933)
 
 ![](https://img.shields.io/badge/Mobile%20Apk-Java-informational?style=flat&logo=Java&logoColor=white&color=ff9933)
 
 
 Linki:
-* [Katalog zawierający pliki projektu](https://github.com/)
+* [Katalog zawierający pliki projektu](https://github.com/Presoon/IO-MarzenieLaboranta/)
 * [Wersja release](https://github.com/)
 * [Katalog dokumentacji](https://github.com/)
