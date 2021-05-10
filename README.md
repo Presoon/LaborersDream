@@ -13,7 +13,7 @@ Project of application system for managing laboratory equipment resources,
 supporting the ticket system and various roles of employees.
 
 
-Live Demo: [ml.seev.pro](http://ml.seev.pro)
+Live Demo: [ml.seev.pro](http://ml.seev.pro) (expired)
  
 
 Technology Stack:
